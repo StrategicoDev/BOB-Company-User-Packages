@@ -28,31 +28,68 @@ namespace LocationRepresentation.Admin
             txtCompany.Text = "";
             txtIdle.Text = "";
             txtLicense.Text = "";
-            txtID.Text ="";
             Label2.Text ="";
-            txtUserStructure.Text="";
+            ddlPackage.SelectedIndex = 0;
             GridView1.DataBind();
-            GridView2.DataBind();
+            //GridView2.DataBind();
         }
 
         protected void btnParentCompany_Click(object sender, EventArgs e)
         {
-            service1.RecordPrimaryCompany(txtCompany.Text, Convert.ToInt32(txtLicense.Text), txtUserStructure.Text, txtIdle.Text);
-            txtCompany.Text = "";
-            txtIdle.Text = "";
-            txtLicense.Text = "";
-            txtID.Text ="";
-            txtUserStructure.Text="";
-            GridView1.DataBind();
-            GridView2.DataBind();
-            labelUser.Text = "Successfully Created A Parent Company";
+            if (ddlPackage.SelectedIndex > 0)
+            {
+                if (txtCompany.Text != string.Empty)
+                {
+                    if (txtIdle.Text != string.Empty)
+                    {
+                        if (txtLicense.Text != string.Empty)
+                        {
+                            string str = service1.RecordPrimaryCompany(txtCompany.Text, Convert.ToInt32(txtLicense.Text), ddlPackage.SelectedItem.Value, txtIdle.Text);
+                            if (str != "1")
+                            {
+                                Label2.Text = "Failed To Create Company <br> " + str;
+                            }
+                            else
+                            {
+                                txtCompany.Text = "";
+                                txtIdle.Text = "";
+                                txtLicense.Text = "";
+                                ddlPackage.SelectedIndex = 0;
+                                GridView1.DataBind();
+                                //GridView2.DataBind();
+                                Label2.Text = "Successfully Created Company";
+                            }
+                        }
+                        else
+                        {
+                            Label2.Text = "Enter Amount of Licenses";
+                            txtLicense.Focus();
+                        }
+                    }
+                    else
+                    {
+                        Label2.Text = "Enter Idle Time";
+                        txtIdle.Focus();
+                    }
+                }
+                else
+                {
+                    Label2.Text = "Enter Company Name";
+                    txtCompany.Focus();
+                }
+            }
+            else
+            {
+                Label2.Text = "Select User Package Type";
+            }
+            
+            
+            
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string ID = GridView1.SelectedRow.Cells[1].Text;
-            txtID.Text = ID;
-            Session["ID"] = ID;
 
             string Company = GridView1.SelectedRow.Cells[2].Text;
             Session["Parent"] = Company;
@@ -129,92 +166,92 @@ namespace LocationRepresentation.Admin
 
         }
 
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = GridView1.Rows[e.RowIndex];
+        //protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        //{
+        //    GridViewRow row = GridView1.Rows[e.RowIndex];
     
-            string License = ((TextBox)row.Cells[3].Controls[0]).Text; // License
-            string UserStructure = ((TextBox)row.Cells[4].Controls[0]).Text; // UserStructure
-            string idle = ((TextBox)row.Cells[5].Controls[0]).Text; // Idle
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["webafricaConnectionString"].ConnectionString))
-            {
-                conn.Open();
+        //    string License = ((TextBox)row.Cells[3].Controls[0]).Text; // License
+        //    string UserStructure = ((TextBox)row.Cells[4].Controls[0]).Text; // UserStructure
+        //    string idle = ((TextBox)row.Cells[5].Controls[0]).Text; // Idle
+        //    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["webafricaConnectionString"].ConnectionString))
+        //    {
+        //        conn.Open();
 
-                //DropDownList ddl = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("DDStatus");
-                //string STATUS = "";
-                //if (ddl == null)
-                //{
-                //    STATUS = string.Empty;
-                //}
-                //else
-                //{
-                //    STATUS = ddl.SelectedValue;
-                //}
-
-
-                //using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["webafricaConnectionString"].ConnectionString))
-                //{
-                //    conn.Open();
-                //    try
-                //    {
-                //        string query = "UPDATE [ParentCompany] SET [License] = '" + License + "', [UserStructure] = '" + UserStructure + "',[Idle] = '" + idle + "', [Status] = '" + STATUS + "' WHERE [ID] = '" + id + "'";
-                //        SqlCommand cmd = new SqlCommand(query, conn);
-                //        cmd.ExecuteNonQuery();
-                //        GridView1.EditIndex = -1;
-                //        GridView1.DataBind();
-                //      //  lblMessage.Text = "";
-                //      //  lblMessage.Visible = false;
-                //    }
-                //    catch (Exception)
-                //    {
-                //      //  lblMessage.Text = "Failed To Update Data";
-                //    }
-
-                //}
+        //        //DropDownList ddl = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("DDStatus");
+        //        //string STATUS = "";
+        //        //if (ddl == null)
+        //        //{
+        //        //    STATUS = string.Empty;
+        //        //}
+        //        //else
+        //        //{
+        //        //    STATUS = ddl.SelectedValue;
+        //        //}
 
 
+        //        //using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["webafricaConnectionString"].ConnectionString))
+        //        //{
+        //        //    conn.Open();
+        //        //    try
+        //        //    {
+        //        //        string query = "UPDATE [ParentCompany] SET [License] = '" + License + "', [UserStructure] = '" + UserStructure + "',[Idle] = '" + idle + "', [Status] = '" + STATUS + "' WHERE [ID] = '" + id + "'";
+        //        //        SqlCommand cmd = new SqlCommand(query, conn);
+        //        //        cmd.ExecuteNonQuery();
+        //        //        GridView1.EditIndex = -1;
+        //        //        GridView1.DataBind();
+        //        //      //  lblMessage.Text = "";
+        //        //      //  lblMessage.Visible = false;
+        //        //    }
+        //        //    catch (Exception)
+        //        //    {
+        //        //      //  lblMessage.Text = "Failed To Update Data";
+        //        //    }
 
-
-                DropDownList ddl = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("DDStatus");
-
-                if (ddl != null)
-                {
-                    string STATUS = ddl.SelectedItem.Text;
-
-                    //string selectedTransporterCode = ddl.SelectedValue;
-
-
-                    SqlDataSource3.UpdateParameters["License"].DefaultValue = License;
-                    SqlDataSource3.UpdateParameters["Idle"].DefaultValue = idle;
-                    SqlDataSource3.UpdateParameters["UserStructure"].DefaultValue = UserStructure;
-                    SqlDataSource3.UpdateParameters["STATUS"].DefaultValue = STATUS;
-                    SqlDataSource3.UpdateParameters["ID"].DefaultValue = e.Keys["ID"].ToString();
-
-                    try
-                    {
-                        SqlDataSource3.Update();
+        //        //}
 
 
 
 
-                        string query = "UPDATE [SubCompany] SET [STATUS] = '" + STATUS + "' WHERE [ID] = '" + e.Keys["ID"].ToString() + "'";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.ExecuteNonQuery();
+        //        DropDownList ddl = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("DDStatus");
+
+        //        if (ddl != null)
+        //        {
+        //            string STATUS = ddl.SelectedItem.Text;
+
+        //            //string selectedTransporterCode = ddl.SelectedValue;
+
+
+        //            SqlDataSource3.UpdateParameters["License"].DefaultValue = License;
+        //            SqlDataSource3.UpdateParameters["Idle"].DefaultValue = idle;
+        //            SqlDataSource3.UpdateParameters["UserStructure"].DefaultValue = UserStructure;
+        //            SqlDataSource3.UpdateParameters["STATUS"].DefaultValue = STATUS;
+        //            SqlDataSource3.UpdateParameters["ID"].DefaultValue = e.Keys["ID"].ToString();
+
+        //            try
+        //            {
+        //                SqlDataSource3.Update();
 
 
 
 
-                    }
-                    catch (Exception)
-                    {
+        //                string query = "UPDATE [SubCompany] SET [STATUS] = '" + STATUS + "' WHERE [ID] = '" + e.Keys["ID"].ToString() + "'";
+        //                SqlCommand cmd = new SqlCommand(query, conn);
+        //                cmd.ExecuteNonQuery();
 
-                    }
 
-                    GridView1.EditIndex = -1;
-                }
-            }
 
-        }
+
+        //            }
+        //            catch (Exception)
+        //            {
+
+        //            }
+
+        //            GridView1.EditIndex = -1;
+        //        }
+        //    }
+
+        //}
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
@@ -231,6 +268,11 @@ namespace LocationRepresentation.Admin
         protected void btnSubCompany_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Admin/SCompany.aspx");
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            GridView1.DataBind();
         }
     }
 }
