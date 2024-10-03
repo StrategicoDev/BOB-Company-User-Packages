@@ -353,7 +353,7 @@ namespace LocationRepresentation
 
 
         [WebMethod]
-        public string RecordSubCompany(string Company,string Branch, string UserStructure, int ID, string PCompany)
+        public string RecordSubCompany(string Company, string PCompany)
         {
             try
             {
@@ -362,14 +362,30 @@ namespace LocationRepresentation
                 {
                   
                     conn.Open();
-                    string query = "INSERT INTO [dbo].[SubCompany]" +
-                                "([ID],[Company],[Branch],[UserStructure],[DateOfCapture], [ParentCompany],[STATUS])" +
-                    "VALUES" +
-                      "('" + ID + "','" + Company + "','" + Branch + "','" + UserStructure + "','" + DateTime.Now + "','" + PCompany + "','ACTIVE')";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();
 
-                    return "1";
+                  
+                    string query = "SELECT * FROM [SubCompany] WHERE Company = '" + Company + "'and [ParentCompany] = '" + PCompany +  "'";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        return "Company Already Exists";
+                    }
+                    else
+
+                    {
+                     query = "INSERT INTO [dbo].[SubCompany] " +
+                "([Company], [DateOfCapture], [ParentCompany], [Status]) " +
+                "VALUES " +
+                "('" + Company + "', getdate(), '" + PCompany + "', 'ACTIVE')";
+
+                        SqlCommand cmd1 = new SqlCommand(query, conn);
+                        cmd1.ExecuteNonQuery();
+
+                        return "1";
+                    }
+
+                    
 
                 }
             }

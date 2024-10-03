@@ -42,13 +42,13 @@ namespace LocationRepresentation.Admin
         protected void btnSubCompany_Click(object sender, EventArgs e)
         {
             //  public string RecordSubCompany(string Company,string Branch, string UserStructure, int ID)
-            service1.RecordSubCompany(txtCompany.Text, txtBranch.Text, txtUserStructure.Text, Convert.ToInt32(txtID.Text), txtParentCompany.Text);
-            lblMessage.Text = "Successfully Created A Sub Company";
-            txtBranch.Text = "";
-            txtCompany.Text = "";
-            txtID.Text = "";
-            txtUserStructure.Text="";
-            txtParentCompany.Text="";
+            //service1.RecordSubCompany(txtCompany.Text, txtBranch.Text, txtUserStructure.Text, Convert.ToInt32(txtID.Text), txtParentCompany.Text);
+            //lblMessage.Text = "Successfully Created A Sub Company";
+            //txtBranch.Text = "";
+            //txtCompany.Text = "";
+            //txtID.Text = "";
+            //txtUserStructure.Text="";
+            //txtParentCompany.Text="";
         }
 
         protected void btnBack_Click(object sender, EventArgs e)

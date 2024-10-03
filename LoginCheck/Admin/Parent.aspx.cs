@@ -25,12 +25,15 @@ namespace LocationRepresentation.Admin
 
         protected void btnClearFilter_Click(object sender, EventArgs e)
         {
-            txtCompany.Text = "";
+            txtComp.Text = "";
             txtIdle.Text = "";
             txtLicense.Text = "";
             Label2.Text ="";
             ddlPackage.SelectedIndex = 0;
             GridView1.DataBind();
+            GridView2.DataBind();
+            txtSubCompany.Text = "";
+            panelSubCompany.Visible = false;
             //GridView2.DataBind();
         }
 
@@ -92,7 +95,12 @@ namespace LocationRepresentation.Admin
             string ID = GridView1.SelectedRow.Cells[1].Text;
 
             string Company = GridView1.SelectedRow.Cells[2].Text;
-            Session["Parent"] = Company;
+           Session["Parent"] = Company;
+
+            txtComp.Text = Company;
+
+            panelSubCompany.Visible = true;
+           
 
 
 
@@ -267,12 +275,48 @@ namespace LocationRepresentation.Admin
 
         protected void btnSubCompany_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Admin/SCompany.aspx");
+            
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             GridView1.DataBind();
+        }
+
+        protected void btnSubCompany_Click1(object sender, EventArgs e)
+        {
+            string Exist = "";
+            if (txtSubCompany.Text =="")
+            {
+                Label2.Text = "Please Enter A Sub Company";
+                txtSubCompany.Focus();
+            }
+            else
+            {
+                Exist = service1.RecordSubCompany(txtSubCompany.Text, Session["Parent"].ToString());
+
+
+                if (Exist != "1")
+                {
+                    Label2.Text = "Failed To Create Sub Company <br> " + Exist;
+                    txtSubCompany.Text ="";
+                    txtSubCompany.Focus();
+                }
+                else
+                {
+                    txtCompany.Text = "";
+                    txtIdle.Text = "";
+                    txtLicense.Text = "";
+                    ddlPackage.SelectedIndex = 0;
+                    txtSubCompany.Text = "";
+                    GridView2.DataBind();
+                    GridView1.DataBind();
+                    //GridView2.DataBind();
+                    Label2.Text = "Successfully Created A Sub Company";
+                }
+
+            }
+
         }
     }
 }

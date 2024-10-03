@@ -20,8 +20,7 @@
                     <table>
                         <tr>
                             <td>
-                                <asp:Button ID="btnSubCompany" runat="server" CssClass="btn active" Text="Add Sub Company" Width="184px" OnClick="btnSubCompany_Click" />
-                            </td>
+                                &nbsp;</td>
                             <td>&nbsp;</td>
                             <td>
                                 
@@ -67,7 +66,7 @@
                         <tr>
                             <td>User Structure: </td>
                             <td>
-                                <asp:DropDownList ID="ddlPackage" runat="server">
+                                <asp:DropDownList ID="ddlPackage" runat="server" width="150px" CssClass="form-control">
     <asp:ListItem Value="%">Select Package</asp:ListItem>
     <asp:ListItem Value="CL">Concurrent</asp:ListItem>
     <asp:ListItem Value="IL">Individual</asp:ListItem>
@@ -117,23 +116,23 @@
                         </tr>
                         <tr>
                             <td style="width: 200px">
-                                <asp:TextBox ID="txtComp" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtComp" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                             <td style="width: 200px">
-                                <asp:DropDownList ID="ddlUserStructure" runat="server">
+                                <asp:DropDownList ID="ddlUserStructure" runat="server"  CssClass="form-control">
                                     <asp:ListItem Value="%">All Packages</asp:ListItem>
                                     <asp:ListItem Value="CL">Concurrent</asp:ListItem>
                                     <asp:ListItem Value="IL">Individual</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
-                            <td style="width: 200px">
-                                <asp:DropDownList ID="ddlStatus" runat="server">
+                            <td style="width: 200px" >
+                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control">
                                     <asp:ListItem>ACTIVE</asp:ListItem>
                                     <asp:ListItem>DEACTIVE</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                             <td style="width: 200px">
-                                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+                                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn active" OnClick="btnSearch_Click" />
                             </td>
                             <td style="width: 200px">
                                 <asp:Button ID="btnClearFilter" runat="server" CssClass="btn active" OnClick="btnClearFilter_Click" Text="Clear Filters" Width="190px" />
@@ -147,10 +146,10 @@
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataSourceID="sdsParentCompany" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataSourceID="sdsParentCompany" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" >
                         <AlternatingRowStyle BackColor="White" ForeColor="#3076f5" />
                         <Columns>
-                            <asp:CommandField ShowEditButton="True" ShowSelectButton="True" />
+                            <asp:CommandField ShowEditButton="True" ShowSelectButton="True" ButtonType="Button" />
                             <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                             <asp:BoundField DataField="Company" HeaderText="Company" SortExpression="Company" />
                             <asp:BoundField DataField="Licenses" HeaderText="Licenses" SortExpression="Licenses" />
@@ -209,26 +208,78 @@
             </tr>
             <tr>
                 <td>
-                    &nbsp;</td>
-            </tr>
+                  
+                             
+        </td>
+    </tr>
+                 
+                    <tr>
+                        <td>
+                            <asp:Panel ID="panelSubCompany" Visible="false" runat="server">
+                            <table>
+    <td>
+<tr>
+    <td>
+        <h3>Create New Sub Company</h3>
+    </td>
+</tr>
+<tr>
+    <td>
+        <table>
+
             <tr>
+                <td>Sub Company: </td>
+                <td>
+                    <asp:TextBox ID="txtSubCompany" runat="server" MaxLength="20" CssClass="form-control" Width="150px" ></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Button ID="btnSubCompany" runat="server" CssClass="btn active"  Text="Create Sub Company" Width="220px" OnClick="btnSubCompany_Click1" />
+                </td>
+            </tr>
+            
+            <tr>
+                <td>&nbsp;</td>
                 <td>
                     &nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="auto-style2">
+                    &nbsp;</td>
             </tr>
+
+        </table>
+    </td>
+</tr>
+    </td>
+                            </table>
+                                </asp:Panel>
+                        </td>
+      
+   
+    </tr>
+
+
+          
+        
+
+ 
+</table>
             <tr>
                 <td>
-                    <h4>Sub Company Details</h4>
+                    <h4>Sub Company Details</h4>  <td>
+                    
                 </td>
             </tr>
             <tr>
                 <td>
-                    <%--<asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" EmptyDataText="No Lines for selected Order" DataSourceID="SqlDataSource2">
+                    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" EmptyDataText="No Lines for selected Order" DataSourceID="SqlDataSource1">
                         <AlternatingRowStyle BackColor="White" ForeColor="#3076f5" />
                         <Columns>
+                            <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="Company" HeaderText="Company" SortExpression="Company" />
-                            <asp:BoundField DataField="Branch" HeaderText="Branch" SortExpression="Branch" />
-                            <asp:BoundField DataField="UserStructure" HeaderText="UserStructure" SortExpression="UserStructure" />
+                            <asp:BoundField DataField="DateOfCapture" HeaderText="DateOfCapture" SortExpression="DateOfCapture" />
                             <asp:BoundField DataField="ParentCompany" HeaderText="ParentCompany" SortExpression="ParentCompany" />
+                            <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#3076f5" Font-Bold="True" ForeColor="White" />
@@ -240,12 +291,17 @@
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                    </asp:GridView>--%>
+                    </asp:GridView>
                 </td>
             </tr>
             <tr>
                 <td>
-                    &nbsp;</td>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:webafricaConnectionString %>" SelectCommand="SELECT * FROM [SubCompany] WHERE ([ParentCompany] = @Company)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="txtComp" Name="Company" PropertyName="Text" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>

@@ -1,38 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\",
+  "WorkspaceRootPath": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|c:\\users\\justi\\onedrive\\documents\\github\\bob-company-user-packages\\logincheck\\admin\\parent.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|c:\\users\\sammy\\onedrive - strategico\\documents\\github\\bob-checkloginstatus\\bob-company-user-packages\\logincheck\\admin\\parent.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:admin\\parent.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|c:\\users\\justi\\onedrive\\documents\\github\\bob-company-user-packages\\logincheck\\admin\\scompany.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:admin\\scompany.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|c:\\users\\justi\\onedrive\\documents\\github\\bob-company-user-packages\\logincheck\\admin\\scompany.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:admin\\scompany.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|c:\\users\\justi\\onedrive\\documents\\github\\bob-company-user-packages\\logincheck\\admin\\parent.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\admin\\parent.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:admin\\parent.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|c:\\users\\justi\\onedrive\\documents\\github\\bob-company-user-packages\\logincheck\\admin\\addsubcompany.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:admin\\addsubcompany.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|c:\\users\\justi\\onedrive\\documents\\github\\bob-company-user-packages\\logincheck\\service.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\service.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:service.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|c:\\users\\justi\\onedrive\\documents\\github\\bob-company-user-packages\\logincheck\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\admin\\scompany.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:admin\\scompany.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|c:\\users\\justi\\onedrive\\documents\\github\\bob-company-user-packages\\logincheck\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\admin\\addsubcompany.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:admin\\addsubcompany.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\admin\\scompany.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:admin\\scompany.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{1DCC4923-1222-4C43-BC46-A0F6836BBA26}|LoginCheck.csproj|solutionrelative:default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -63,10 +63,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -102,107 +98,101 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SCompany.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\SCompany.aspx.cs",
-              "RelativeDocumentMoniker": "Admin\\SCompany.aspx.cs",
-              "ToolTip": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\SCompany.aspx.cs",
-              "RelativeToolTip": "Admin\\SCompany.aspx.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAowCwAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T11:27:31.746Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Parent.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\Parent.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\Parent.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\Parent.aspx.cs",
-              "ToolTip": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\Parent.aspx.cs",
+              "ToolTip": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\Parent.aspx.cs",
               "RelativeToolTip": "Admin\\Parent.aspx.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAgwCoAAAAaAAAA",
+              "ViewState": "AQIAAAcBAAAAAAAAAAA2wDMBAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T10:22:01.273Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Parent.aspx",
-              "DocumentMoniker": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\Parent.aspx",
+              "DocumentMoniker": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\Parent.aspx",
               "RelativeDocumentMoniker": "Admin\\Parent.aspx",
-              "ToolTip": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\Parent.aspx",
+              "ToolTip": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\Parent.aspx",
               "RelativeToolTip": "Admin\\Parent.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-03T10:10:27.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SCompany.aspx",
+              "DocumentMoniker": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\SCompany.aspx",
+              "RelativeDocumentMoniker": "Admin\\SCompany.aspx",
+              "ToolTip": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\SCompany.aspx",
+              "RelativeToolTip": "Admin\\SCompany.aspx",
               "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-03T10:10:27.719Z",
+              "WhenOpened": "2024-10-03T10:09:15.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Default.aspx",
+              "RelativeDocumentMoniker": "Default.aspx",
+              "ToolTip": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Default.aspx",
+              "RelativeToolTip": "Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-03T09:36:40.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AQIAACcAAAAAAAAAAAAuwDIAAACHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-10-03T09:23:56.51Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Service.asmx.cs",
+              "DocumentMoniker": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Service.asmx.cs",
+              "RelativeDocumentMoniker": "Service.asmx.cs",
+              "ToolTip": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Service.asmx.cs",
+              "RelativeToolTip": "Service.asmx.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAcwGMBAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T07:31:08.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SCompany.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\SCompany.aspx.cs",
+              "RelativeDocumentMoniker": "Admin\\SCompany.aspx.cs",
+              "ToolTip": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\SCompany.aspx.cs",
+              "RelativeToolTip": "Admin\\SCompany.aspx.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAtwC4AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T11:27:31.746Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "AddSubCompany.aspx",
-              "DocumentMoniker": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\AddSubCompany.aspx",
+              "DocumentMoniker": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\AddSubCompany.aspx",
               "RelativeDocumentMoniker": "Admin\\AddSubCompany.aspx",
-              "ToolTip": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\AddSubCompany.aspx",
+              "ToolTip": "C:\\Users\\sammy\\OneDrive - Strategico\\Documents\\GitHub\\BOB-CheckLoginStatus\\BOB-Company-User-Packages\\LoginCheck\\Admin\\AddSubCompany.aspx",
               "RelativeToolTip": "Admin\\AddSubCompany.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-03T10:10:24.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SCompany.aspx",
-              "DocumentMoniker": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\SCompany.aspx",
-              "RelativeDocumentMoniker": "Admin\\SCompany.aspx",
-              "ToolTip": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Admin\\SCompany.aspx",
-              "RelativeToolTip": "Admin\\SCompany.aspx",
-              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-03T10:09:15.076Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Service.asmx.cs",
-              "DocumentMoniker": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Service.asmx.cs",
-              "RelativeDocumentMoniker": "Service.asmx.cs",
-              "ToolTip": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Service.asmx.cs",
-              "RelativeToolTip": "Service.asmx.cs",
-              "ViewState": "AQIAAAEBAAAAAAAAAAAuwGMBAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T07:31:08.668Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Default.aspx",
-              "DocumentMoniker": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Default.aspx",
-              "RelativeDocumentMoniker": "Default.aspx",
-              "ToolTip": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Default.aspx",
-              "RelativeToolTip": "Default.aspx",
-              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-03T09:36:40.705Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Web.config",
-              "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "C:\\Users\\justi\\OneDrive\\Documents\\GitHub\\BOB-Company-User-Packages\\LoginCheck\\Web.config",
-              "RelativeToolTip": "Web.config",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAADIAAACHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-10-03T09:23:56.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T10:10:24.527Z"
             }
           ]
         }
