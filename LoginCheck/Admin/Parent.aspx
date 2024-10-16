@@ -20,9 +20,14 @@
                     <table>
                         <tr>
                             <td>
-                                &nbsp;</td>
-                            <td>&nbsp;</td>
+                                <asp:Button ID="btnCleanReport" runat="server" CssClass="btn active" Text="Clean Active Report" Width="220px" OnClick="btnCleanReport_Click" />
+                            </td>
                             <td>
+                                <asp:Button ID="btnLoginReport" runat="server" CssClass="btn active" Text="Login Report" Width="220px" OnClick="btnLoginReport_Click"  />
+                            </td>
+                            <td>
+                                
+                                <asp:Button ID="btnDashboard" runat="server" CssClass="btn active" Text="Dashboard" Width="220px" OnClick="btnDashboard_Click" />
                                 
                             </td>
                             <td>&nbsp;</td>
@@ -116,17 +121,17 @@
                         </tr>
                         <tr>
                             <td style="width: 200px">
-                                <asp:TextBox ID="txtComp" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtComp" runat="server" CssClass="form-control" AutoPostBack="true"></asp:TextBox>
                             </td>
                             <td style="width: 200px">
-                                <asp:DropDownList ID="ddlUserStructure" runat="server"  CssClass="form-control">
+                                <asp:DropDownList ID="ddlUserStructure" runat="server"  CssClass="form-control" AutoPostBack="true">
                                     <asp:ListItem Value="%">All Packages</asp:ListItem>
                                     <asp:ListItem Value="CL">Concurrent</asp:ListItem>
                                     <asp:ListItem Value="IL">Individual</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                             <td style="width: 200px" >
-                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control">
+                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" AutoPostBack="true">
                                     <asp:ListItem>ACTIVE</asp:ListItem>
                                     <asp:ListItem>DEACTIVE</asp:ListItem>
                                 </asp:DropDownList>
@@ -169,7 +174,7 @@
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="sdsParentCompany" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:webafricaConnectionString %>" DeleteCommand="DELETE FROM [ParentCompany] WHERE [ID] = @original_ID AND (([Company] = @original_Company) OR ([Company] IS NULL AND @original_Company IS NULL)) AND (([Licenses] = @original_Licenses) OR ([Licenses] IS NULL AND @original_Licenses IS NULL)) AND (([UserStructure] = @original_UserStructure) OR ([UserStructure] IS NULL AND @original_UserStructure IS NULL)) AND (([IdleTime] = @original_IdleTime) OR ([IdleTime] IS NULL AND @original_IdleTime IS NULL)) AND (([Status] = @original_Status) OR ([Status] IS NULL AND @original_Status IS NULL))" InsertCommand="INSERT INTO [ParentCompany] ([Company], [Licenses], [UserStructure], [IdleTime], [Status]) VALUES (@Company, @Licenses, @UserStructure, @IdleTime, @Status)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [ParentCompany] WHERE (([Company] LIKE '%' + @Company + '%') AND ([UserStructure] LIKE '%' + @UserStructure + '%') AND ([Status] LIKE '%' + @Status + '%')) ORDER BY [Company]" UpdateCommand="UPDATE [ParentCompany] SET [Company] = @Company, [Licenses] = @Licenses, [UserStructure] = @UserStructure, [IdleTime] = @IdleTime, [Status] = @Status WHERE [ID] = @original_ID AND (([Company] = @original_Company) OR ([Company] IS NULL AND @original_Company IS NULL)) AND (([Licenses] = @original_Licenses) OR ([Licenses] IS NULL AND @original_Licenses IS NULL)) AND (([UserStructure] = @original_UserStructure) OR ([UserStructure] IS NULL AND @original_UserStructure IS NULL)) AND (([IdleTime] = @original_IdleTime) OR ([IdleTime] IS NULL AND @original_IdleTime IS NULL)) AND (([Status] = @original_Status) OR ([Status] IS NULL AND @original_Status IS NULL))">
+                    <asp:SqlDataSource ID="sdsParentCompany" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:webafricaConnectionString %>" DeleteCommand="DELETE FROM [ParentCompany] WHERE [ID] = @original_ID AND (([Company] = @original_Company) OR ([Company] IS NULL AND @original_Company IS NULL)) AND (([Licenses] = @original_Licenses) OR ([Licenses] IS NULL AND @original_Licenses IS NULL)) AND (([UserStructure] = @original_UserStructure) OR ([UserStructure] IS NULL AND @original_UserStructure IS NULL)) AND (([IdleTime] = @original_IdleTime) OR ([IdleTime] IS NULL AND @original_IdleTime IS NULL)) AND (([Status] = @original_Status) OR ([Status] IS NULL AND @original_Status IS NULL))" InsertCommand="INSERT INTO [ParentCompany] ([Company], [Licenses], [UserStructure], [IdleTime], [Status]) VALUES (@Company, @Licenses, @UserStructure, @IdleTime, @Status)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [ParentCompany] WHERE (([Company] LIKE '%' + @Company + '%') AND ([UserStructure] LIKE '%' + @UserStructure + '%') AND ([Status] LIKE '%' + @Status + '%')) ORDER BY [Company]" UpdateCommand="UPDATE [ParentCompany] SET [Company] = @Company, [Licenses] = @Licenses, [UserStructure] = @UserStructure, [IdleTime] = @IdleTime, [Status] = @Status WHERE [ID] = @original_ID AND (([Company] = @original_Company) OR ([Company] IS NULL AND @original_Company IS NULL)) AND (([Licenses] = @original_Licenses) OR ([Licenses] IS NULL AND @original_Licenses IS NULL)) AND (([UserStructure] = @original_UserStructure) OR ([UserStructure] IS NULL AND @original_UserStructure IS NULL)) AND (([IdleTime] = @original_IdleTime) OR ([IdleTime] IS NULL AND @original_IdleTime IS NULL)) AND (([Status] = @original_Status) OR ([Status] IS NULL AND @original_Status IS NULL) )">
                         <DeleteParameters>
                             <asp:Parameter Name="original_ID" Type="Int32" />
                             <asp:Parameter Name="original_Company" Type="String" />

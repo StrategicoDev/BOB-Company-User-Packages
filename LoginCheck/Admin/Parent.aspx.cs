@@ -318,5 +318,20 @@ namespace LocationRepresentation.Admin
             }
 
         }
+
+        protected void btnCleanReport_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reports/CleanActiveUsersReports.aspx");
+        }
+
+        protected void btnLoginReport_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reports/LoginReport.aspx");
+        }
+
+        protected void btnDashboard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/DashboardRecords.aspx");
+        }
     }
 }

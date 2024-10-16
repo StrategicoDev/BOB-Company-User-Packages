@@ -8,9 +8,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Mail;
+using System.Runtime.Remoting.Messaging;
 using System.Threading;
 using System.Web;
 using System.Web.Services;
+using System.Web.Services.Description;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
@@ -26,152 +28,224 @@ namespace LocationRepresentation
     // [System.Web.Script.Services.ScriptService]
     public class Service : System.Web.Services.WebService
     {
-
+       
   
-        [WebMethod]
-        public string CheckLoginStatus(string User, string Company, string Branch)
+        [WebMethod(EnableSession = true)]
+        public string CheckLoginStatus(string User, string Company)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["webafricaConnectionString"].ConnectionString))
             {
                 conn.Open();
 
                 //Variable Declaration
-                string bReturn = "";
+                string bReturn ="";
                 string UserStructure = "";
                 string STATUS = "";
                 int UserCount = 0;
                 string LoginStatus = "";
                 int ID = 0;
                 string ParentCompany = "";
+                string LoginSuccessfull = "0";
+                //  string UserStructure = "";
+                string Error = "";
 
-                //Check Company UserType Details
-                string query = "SELECT * FROM [dbo].[SubCompany] WHERE [Company] = '" + Company + "'AND Branch = '" + Branch + "'";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    while (dr.Read())
-                    {
-                        UserStructure = dr["UserStructure"].ToString();
-                        //  UserCount = Convert.ToInt32( dr["License"].ToString());
-                        ID = Convert.ToInt32(dr["ID"].ToString());
-                        STATUS = dr["STATUS"].ToString();
-                        ParentCompany = dr["ParentCompany"].ToString();
-                        break;
-                    }
-                } //Get user structure
-                else
-                {
-                    return "Company Is Not Setup To Allow Login. Please Contact Your Administrator";
-                    //No user structure setup, assuming that the userStructure is per user
-                } //no user structure setup
 
-                if (STATUS == "ACTIVE")
-                {
-                    if (UserStructure == "CL")
+                    //Check Company UserType Details
+                    string query = "SELECT * FROM [dbo].[SubCompany] WHERE [Company] = '" + Company + "'";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
                     {
-                        //Check If User is currently marked as active
-                        query = "SELECT [LoginStatus] FROM [dbo].[UserLoginStatus] " +
-                            "WHERE [UserName] = '" + User + "' and Company = '" + Company + "' and LoginStatus = 'ACTIVE'";
-                        cmd = new SqlCommand(query, conn);
-                        dr = cmd.ExecuteReader();
-                        if (dr.HasRows)
+                        while (dr.Read())
                         {
-                            //Update Last active                                
-                            query = "UPDATE [dbo].[UserLoginStatus] " +
-                                "SET [LoginStatus] = 'ACTIVE',[LastActivity] = getdate() WHERE [Username] = '" + User + "' and Company = '" + Company + "'";
+                         //   UserStructure = dr["UserStructure"].ToString();
+                            //  UserCount = Convert.ToInt32( dr["License"].ToString());
+                            ID = Convert.ToInt32(dr["ID"].ToString());
+                            STATUS = dr["STATUS"].ToString();
+                            ParentCompany = dr["ParentCompany"].ToString();
+
+
+                            //Get UserStructure
+                            query = "SELECT [UserStructure] FROM [ParentCompany] where [Company] = '" + ParentCompany + "'";
                             cmd = new SqlCommand(query, conn);
-                            cmd.ExecuteNonQuery();
-                            return "1";
-                        }//User is active
-                        else
+                            UserStructure = cmd.ExecuteScalar().ToString();
+
+
+                            break;
+                        }
+                    } //Get user structure
+                    else
+                    {
+                 Session["LoginMessage"] =  "Company Is Not Setup To Allow Login. Please Contact Your Administrator";
+                    InsertUserPackagesLog(ParentCompany, Company, User, Session["LoginMessage"].ToString());
+                    bReturn =  Session["LoginMessage"].ToString();
+
+              
+                        //No user structure setup, assuming that the userStructure is per user
+                    } //no user structure setup
+
+                    if (STATUS == "ACTIVE")
+                    {
+                        if (UserStructure == "CL")
                         {
-                            dr.Close();
-                            //Get total users allowed to be logged in
-                            query = "SELECT * FROM [dbo].[ParentCompany] WHERE [Company] = '" + ParentCompany + "'";
+                            //Check If User is currently marked as active
+                            query = "SELECT [LoginStatus] FROM [dbo].[UserLoginStatus] " +
+                                "WHERE [UserName] = '" + User + "' and Company = '" + Company + "' and LoginStatus = 'ACTIVE'";
                             cmd = new SqlCommand(query, conn);
                             dr = cmd.ExecuteReader();
                             if (dr.HasRows)
                             {
-                                while (dr.Read())
-                                {
-                                    UserCount = Convert.ToInt32(dr["License"].ToString());
-                                    break;
-                                }
-                            }
-
-                            //Get Total Users Currently Logged In
-                            query = " SELECT COUNT([UserName]) FROM [dbo].[UserLoginStatus] " +
-                                        "WHERE LoginStatus = 'ACTIVE' and Company in (SELECT [Company] FROM [dbo].[SubCompany] " +
-                                                            "WHERE ParentCompany = '" + ParentCompany + "')";
-                            cmd = new SqlCommand(query, conn);
-                            int UsersLoggedInCount = Convert.ToInt32(cmd.ExecuteScalar());
-                            if (UsersLoggedInCount < UserCount)
+                                //Update Last active                                
+                                query = "UPDATE [dbo].[UserLoginStatus] " +
+                                    "SET [LoginStatus] = 'ACTIVE',[LastActivity] = getdate() WHERE [Username] = '" + User + "' and Company = '" + Company + "'";
+                                cmd = new SqlCommand(query, conn);
+                                cmd.ExecuteNonQuery();
+                                bReturn="1" ;
+                            }//User is active
+                            else
                             {
-                                query = "SELECT [LoginStatus] FROM [dbo].[UserLoginStatus] " +
-                                        "WHERE [UserName] = '" + User + "' and Company = '" + Company + "'";
+                                dr.Close();
+                                //Get total users allowed to be logged in
+                                query = "SELECT * FROM [dbo].[ParentCompany] WHERE [Company] = '" + ParentCompany + "'";
                                 cmd = new SqlCommand(query, conn);
                                 dr = cmd.ExecuteReader();
                                 if (dr.HasRows)
                                 {
-                                    query = "UPDATE [dbo].[UserLoginStatus] " +
-                                            "SET [LoginStatus] = 'ACTIVE',[LastActivity] = getdate() " +
-                                            "WHERE [Username] = '" + User + "' and Company = '" + Company + "'";
+                                    while (dr.Read())
+                                    {
+                                        UserCount = Convert.ToInt32(dr["Licenses"].ToString());
+                                        break;
+                                    }
+                                }
+
+                                //Get Total Users Currently Logged In
+                                query = " SELECT COUNT([UserName]) FROM [dbo].[UserLoginStatus] " +
+                                            "WHERE LoginStatus = 'ACTIVE' and Company in (SELECT [Company] FROM [dbo].[SubCompany] " +
+                                                                "WHERE ParentCompany = '" + ParentCompany + "')";
+                                cmd = new SqlCommand(query, conn);
+                                int UsersLoggedInCount = Convert.ToInt32(cmd.ExecuteScalar());
+                                if (UsersLoggedInCount < UserCount)
+                                {
+                                    query = "SELECT [LoginStatus] FROM [dbo].[UserLoginStatus] " +
+                                            "WHERE [UserName] = '" + User + "' and Company = '" + Company + "'";
                                     cmd = new SqlCommand(query, conn);
-                                    cmd.ExecuteNonQuery();
-                                    return "1";
-                                }//Update user
+                                    dr = cmd.ExecuteReader();
+                                    if (dr.HasRows)
+                                    {
+                                        query = "UPDATE [dbo].[UserLoginStatus] " +
+                                                "SET [LoginStatus] = 'ACTIVE',[LastActivity] = getdate() " +
+                                                "WHERE [Username] = '" + User + "' and Company = '" + Company + "'";
+                                        cmd = new SqlCommand(query, conn);
+                                        cmd.ExecuteNonQuery();
+                                        bReturn="1";
+                                    }//Update user
+                                    else
+                                    {
+                                        query = "INSERT INTO [dbo].[UserLoginStatus] " +
+                                                "([Company ID],[Company], [UserName], [LastActivity], [LoginStatus]) " +
+                                                "VALUES " +
+                                                "('" + ID + "','" + Company + "', '" + User + "',getdate(), 'ACTIVE')";
+                                        cmd = new SqlCommand(query, conn);
+                                        cmd.ExecuteNonQuery();
+                                        bReturn="1";
+                                    }//insert user
+                                }//Their is space to allow another login
                                 else
                                 {
-                                    query = "INSERT INTO [dbo].[UserLoginStatus] " +
-                                            "([Company ID],[Company], [UserName], [LastActivity], [LoginStatus]) " +
-                                            "VALUES " +
-                                            "('" + ID + "','" + Company + "', '" + User + "',getdate(), 'ACTIVE')";
-                                    cmd = new SqlCommand(query, conn);
-                                    cmd.ExecuteNonQuery();
-                                    return "1";
-                                }//insert user
-                            }//Their is space to allow another login
-                            else
-                            {
-                                return "There Are Currently No Licenses Available. Please Try Again Later";
-                            }//No Space Available
-                        }//User is either not active, or first time login in
-                    } //Concurrent licenses
-                    else
-                    {
-                        query = "SELECT [LoginStatus] FROM [dbo].[UserLoginStatus] WHERE [UserName] = '" + User + "' and Company = '"+Company+"'";
-                        cmd = new SqlCommand(query, conn);
-                        dr = cmd.ExecuteReader();
-                        if (dr.HasRows)
-                        {
-                            query = "UPDATE [dbo].[UserLoginStatus] " +
-                                "SET [LoginStatus] = 'ACTIVE', [LastActivity] = getdate() WHERE [UserName] = '" + User + "' and Company = '"+Company+"'";
-                            cmd = new SqlCommand(query, conn);
-                            cmd.ExecuteNonQuery();
-                        }//Update Login Status
+                                Session["LoginMessage"] = "There Are Currently No Licenses Available. Please Try Again Later";
+                                InsertUserPackagesLog(ParentCompany, Company, User, Session["LoginMessage"].ToString());
+                                bReturn =    Session["LoginMessage"].ToString();
+                                }//No Space Available
+                            }//User is either not active, or first time login in
+                        } //Concurrent licenses
                         else
                         {
-                            query = "INSERT INTO [dbo].[UserLoginStatus] " +
-                                "([Company ID],[Company], [UserName], [LastActivity], [LoginStatus]) " +
-                                "VALUES " +
-                                "('" + ID + "','" + Company + "', '" + User + "',getdate(), 'ACTIVE')";
+                            query = "SELECT [LoginStatus] FROM [dbo].[UserLoginStatus] WHERE [UserName] = '" + User + "' and Company = '"+Company+"'";
                             cmd = new SqlCommand(query, conn);
-                            cmd.ExecuteNonQuery();
-                        }//Insert Login Status
+                            dr = cmd.ExecuteReader();
+                            if (dr.HasRows)
+                            {
+                                query = "UPDATE [dbo].[UserLoginStatus] " +
+                                    "SET [LoginStatus] = 'ACTIVE', [LastActivity] = getdate() WHERE [UserName] = '" + User + "' and Company = '"+Company+"'";
+                                cmd = new SqlCommand(query, conn);
+                                cmd.ExecuteNonQuery();
+                            }//Update Login Status
+                            else
+                            {
+                                query = "INSERT INTO [dbo].[UserLoginStatus] " +
+                                    "([Company ID],[Company], [UserName], [LastActivity], [LoginStatus]) " +
+                                    "VALUES " +
+                                    "('" + ID + "','" + Company + "', '" + User + "',getdate(), 'ACTIVE')";
+                                cmd = new SqlCommand(query, conn);
+                                cmd.ExecuteNonQuery();
+                            }//Insert Login Status
 
-                        return "1";
-                    }//Individual Licenses
-                }
-                else
-                {
-                    return "Company Is Not Active. If This Is Incorrect, Please Contact Your Administrator";
-                }
+                            bReturn = "1";
+                        }//Individual Licenses
+                    }
+                    else
+                    {
+                       Session["LoginMessage"] = "Company Is Not Active. If This Is Incorrect, Please Contact Your Administrator";
+                    InsertUserPackagesLog(ParentCompany, Company, User, Session["LoginMessage"].ToString());
+                    bReturn = Session["LoginMessage"].ToString();
+                    }
+
+                     return bReturn;
+
+
+    
             }
 
 
         }
 
+
+
+        [WebMethod]
+        public string GetCompany(string username)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["webafricaConnectionString"].ConnectionString))
+            {
+
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("select Company from dbo.[Login] where Username = '" + username + "'", conn);
+                    string str = Convert.ToString(cmd.ExecuteScalar());
+                    return str;
+                }
+                catch (Exception ex)
+                {
+                    return "";
+                }
+                finally
+                {
+                    if (conn != null)
+                    {
+                        conn.Close();
+                        conn.Dispose();
+                    }
+                }
+            }
+        }
+
+
+        [WebMethod]
+        public void InsertUserPackagesLog (string ParentCompany, string SubCompany, string User, string Messsage)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["webafricaConnectionString"].ConnectionString))
+            {
+                conn.Open();
+
+                string query = "INSERT INTO [UserPackagesLog] " +
+               "([ParentCompany],[SubCompany],[Username],[Message],[Date]) " +
+               "VALUES " +
+               "('" + ParentCompany + "','" + SubCompany + "','" + User + "','" + Messsage + "', getdate())";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+            }
+        }
 
         [WebMethod]
         public void CleanActiveUser()
@@ -193,7 +267,7 @@ namespace LocationRepresentation
                     while (dr.Read())
                     {
                         string ParentCompany = dr["Company"].ToString();
-                        int idleMinutes = Convert.ToInt32(dr["Idle"]);
+                        int idleMinutes = Convert.ToInt32(dr["IdleTime"]);
 
 
                         query = "UPDATE [dbo].[UserLoginStatus] SET LoginStatus = 'INACTIVE' " +
@@ -314,6 +388,43 @@ namespace LocationRepresentation
             }
         }
 
+
+
+        [WebMethod]
+        public string Login(string username, string password)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["webafricaConnectionString"].ConnectionString))
+            {
+
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("Select * from dbo.[Login] where [username] ='" + username + "' and [password] = '" + password + "'", conn);
+                    if (cmd.ExecuteReader().HasRows)
+                    {
+                        cmd = new SqlCommand("Select * from dbo.[Login] where [username] ='" + username + "' and [password] = '" + password + "' and [Active] = 'Y'", conn);
+                        if (cmd.ExecuteReader().HasRows)
+                        {
+                            return "1";
+                        }
+                        else
+                        {
+                            return "2";
+                        }
+
+                    }
+                    else
+                    {
+                        return "0";
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    return (ex.Message);
+                }
+            }
+        }
 
         [WebMethod]
         public string RecordPrimaryCompany(string Company, int License, string UserStructure, string idle)

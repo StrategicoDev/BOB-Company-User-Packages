@@ -15,6 +15,33 @@ namespace LocationRepresentation.Admin
     {
 
         /// <summary>
+        /// btnCleanReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCleanReport;
+
+        /// <summary>
+        /// btnLoginReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLoginReport;
+
+        /// <summary>
+        /// btnDashboard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDashboard;
+
+        /// <summary>
         /// txtCompany control.
         /// </summary>
         /// <remarks>
